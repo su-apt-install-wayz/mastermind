@@ -42,9 +42,9 @@ h1.titre {
     max-width: 400px;
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 15px;
     background-color: #0c141f;
-    border: solid 1px var(--rose);
+    border: solid 3px var(--rose);
     border-radius: 20px;
     gap: 10px;
 }
