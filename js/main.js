@@ -1,4 +1,5 @@
 let ordreCouleur = 0;
+let ordreToast = 0;
 let ligneFini = 0;
 
 let couleur_random = [];
@@ -33,10 +34,15 @@ for (let i = 0; i < 4; i++) {
 
 console.log(couleur_random);
 
+function reload() {
+    location.reload();
+}
 
 
 function getColors(color) {
     const bulleColor = document.getElementsByClassName('bulle');
+
+    const toast = document.getElementsByClassName('toast');
     console.log(color);
     let nbrBulle = bulleColor.length;
     bulleColor[ordreCouleur].style.backgroundColor = color;
@@ -47,7 +53,7 @@ function getColors(color) {
     ligneColor.push(color);
 
     if (nbrBulle == ordreCouleur) {
-        document.body.innerHTML += "<div class='win'><h1>Game Over</h1><br>Rejouer</div>";
+        document.body.innerHTML += "<div class='win'><h1>Game Over</h1><br><a onclick='reload()'>Rejouer</a></div>";
     }
 
     if (ligneFini == 4) {
@@ -57,6 +63,8 @@ function getColors(color) {
         else {
             ligneFini = 0;
             ligneColor.splice(color);
+            toast[ordreToast].classList.add('score_on');
+            ordreToast++;
         }
     }
 }
