@@ -4,6 +4,30 @@ let ligneFini = 0;
 
 let couleur_random = [];
 const ligneColor = [];
+
+
+function getDifficulte(difficulte) {
+    const game = document.getElementById('game');
+    switch(difficulte) {
+        case 'facile':
+            nbLigne = 8;
+            break;
+
+        case 'moyen':
+            nbLigne = 5;
+            break;
+               
+        case 'difficile':
+            nbLigne = 3;
+            break;
+    }
+
+    console.log(difficulte);
+
+    document.game.innerHTML += "<div class='ligne'><div class='bulle'></div><div class='bulle'></div><div class='bulle'></div><div class='bulle'></div><div class='toast' id='toast'>2</div></div>";
+}
+
+
     
 for (let i = 0; i < 4; i++) {
     color = Math.floor(Math.random() * 5) + 1;
@@ -58,7 +82,7 @@ function getColors(color) {
 
     if (ligneFini == 4) {
         if (JSON.stringify(couleur_random) === JSON.stringify(ligneColor)) {
-            document.body.innerHTML += "<div class='win'><h1>Félicitations !!</h1><a href'#'>Rejouer</a></div>";
+            document.body.innerHTML += "<div class='win'><h1>Félicitations !!</h1><a onclick='reload()'>Rejouer</a></div>";
         }
         else {
             ligneFini = 0;
