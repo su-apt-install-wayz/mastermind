@@ -7,6 +7,7 @@
     <title>Mastermind</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="shortcut icon" href="./assets/mastermind.png" type="image/x-icon">
 </head>
 <body>
 
@@ -21,64 +22,7 @@
         <div class="game" id="game"> 
             <h1 class="titre">MASTERMIND</h1>
             
-            <!-- <div class="ligne" id="ligne1">
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="toast" id="toast">2</div>
-            </div>
-
-            <div class="ligne" id="ligne2">
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="toast" id="toast">2</div>
-            </div>
-
-            <div class="ligne" id="ligne3">
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="toast" id="toast">2</div>
-            </div>
-
-            <div class="ligne" id="ligne4">
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-            </div>
-
-            <div class="ligne" id="ligne5">
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-            </div>
-
-            <div class="ligne" id="ligne6">
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-            </div>
-
-            <div class="ligne" id="ligne7">
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-            </div>
-
-            <div class="ligne" id="ligne8">
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-                <div class="bulle"></div>
-            </div> -->
+            <!-- Insertion des lignes de jeu ici suivant la difficulté -->
 
             <div class="ligne">
                 <div class="bulle_choix red" onclick="getColors('red')"></div>
@@ -93,6 +37,7 @@
 
     <script src="./js/main.js"></script>
     <script>
+        // permet de charger la fonction des lignes du jeu
         window.onload(ligneBoucle());
     </script>
     
