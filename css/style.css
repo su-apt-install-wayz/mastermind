@@ -164,22 +164,27 @@ body {
 
 .game .ligne .red {
     background-color: red;
+    border: none;
 }
 
 .game .ligne .yellow {
     background-color: yellow;
+    border: none;
 }
 
 .game .ligne .green {
     background-color: green;
+    border: none;
 }
 
 .game .ligne .blue {
     background-color: blue;
+    border: none;
 }
 
 .game .ligne .white {
     background-color: white;
+    border: none;
 }
 
 .win {

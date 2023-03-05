@@ -7,8 +7,17 @@ const ligneColor = [];
 
 
 function getDifficulte(difficulte) {
+    localStorage.setItem('laDifficulte', difficulte);
+    window.location.href = "jeu.html";
+}
+
+function ligneBoucle() {
     const game = document.getElementById('game');
-    switch(difficulte) {
+
+    let laDifficulte = localStorage.getItem("laDifficulte");
+    console.log(laDifficulte);
+
+    switch(laDifficulte) {
         case 'facile':
             nbLigne = 8;
             break;
@@ -16,18 +25,16 @@ function getDifficulte(difficulte) {
         case 'moyen':
             nbLigne = 5;
             break;
-               
+                
         case 'difficile':
             nbLigne = 3;
             break;
     }
 
-    console.log(difficulte);
-
-    document.game.innerHTML += "<div class='ligne'><div class='bulle'></div><div class='bulle'></div><div class='bulle'></div><div class='bulle'></div><div class='toast' id='toast'>2</div></div>";
+    for (var i = 1; i <= nbLigne; i++) {
+        game.insertAdjacentHTML("afterbegin","<div class='ligne'><div class='bulle'></div><div class='bulle'></div><div class='bulle'></div><div class='bulle'></div><div class='toast' id='toast'>2</div></div>");
+    }
 }
-
-
     
 for (let i = 0; i < 4; i++) {
     color = Math.floor(Math.random() * 5) + 1;
@@ -58,11 +65,6 @@ for (let i = 0; i < 4; i++) {
 
 console.log(couleur_random);
 
-function reload() {
-    location.reload();
-}
-
-
 function getColors(color) {
     const bulleColor = document.getElementsByClassName('bulle');
 
@@ -91,4 +93,8 @@ function getColors(color) {
             ordreToast++;
         }
     }
+}
+
+function reload() {
+    location.reload();
 }
