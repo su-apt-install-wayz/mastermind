@@ -163,7 +163,7 @@ body {
 
 .game .ligne .red {
     background-color: red;
-    border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 15px;
     border: none;
 }
 
@@ -185,7 +185,7 @@ body {
 .game .ligne .white {
     background-color: white;
     border: none;
-    border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 15px;
 }
 
 .win {

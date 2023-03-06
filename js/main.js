@@ -23,6 +23,7 @@ function ligneBoucle() {
     let laDifficulte = localStorage.getItem("laDifficulte");
 
     //définit le nombre de lignes en fonction de la difficulté
+    nbLigne = 0;
     switch(laDifficulte) {
         case 'facile':
             nbLigne = 8;
