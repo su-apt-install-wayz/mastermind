@@ -90,12 +90,12 @@ function getColors(color) {
     ligneColor.push(color);
 
     if (nbrBulle == ordreCouleur) {
-        document.body.innerHTML += "<div class='win'><h1>Game Over</h1><br><a onclick='reload()'>Rejouer</a></div>";
+        document.body.innerHTML += "<div class='win'><h1>Game Over</h1><div class='ligne'><div class='bulle'></div><div class='bulle'></div><div class='bulle'></div><div class='bulle'></div></div><img class='gif' src='./assets/loose.gif'><a onclick='reload()'>Rejouer</a></div>";
     }
 
     if (ligneFini == 4) {
         if (JSON.stringify(couleur_random) === JSON.stringify(ligneColor)) {
-            document.body.innerHTML += "<div class='win'><h1>Félicitations !!</h1><img src='./assets/win.gif'><a onclick='reload()'>Rejouer</a></div>";
+            document.body.innerHTML += "<div class='win'><h1>Félicitations !!</h1><img class='gif' src='./assets/win.gif'><a onclick='reload()'>Rejouer</a></div>";
         }
         else {
             ligneFini = 0;

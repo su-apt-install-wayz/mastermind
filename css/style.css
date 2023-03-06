@@ -185,9 +185,9 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 500px;
-    height: 300px;
+    width: 550px;
     display: flex;
+    flex-direction: column;
     background-color: #0c141f;
     border-radius: 20px;
     color: white;
@@ -195,7 +195,49 @@ body {
 }
 
 .win h1 {
+    margin: 20px auto;
+    font-family: 'bangers',cursive;
+    letter-spacing: 2px;
+}
+
+.win .gif {
     margin: auto;
+    width: 300px;
+    height: auto;
+}
+
+.win a {
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    z-index: 98;
+    background-color: #0c141f;
+    font-family: 'bangers',cursive;
+    color: white;
+    border: solid 1px var(--rose);
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.win a::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    z-index: -1;
+    width: 0;
+    height: 100%;
+    transition: 300ms ease;
+    background-color: var(--rose);
+}
+
+.win a:hover::before {
+    width: 100%;
+    transition: 300ms ease;
 }
 
 .regles {
