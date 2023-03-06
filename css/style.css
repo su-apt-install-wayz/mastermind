@@ -133,15 +133,6 @@ body {
     right: -80px;
     transition: 300ms ease;
 }
-  
-.close {
-    cursor: pointer;
-    float: right;
-    font-size: 1.25rem;
-    line-height: 1;
-    margin-left: 1em;
-    opacity: .8;
-}
 
 .game .ligne .bulle {
     margin: auto;
@@ -205,6 +196,26 @@ body {
 
 .win h1 {
     margin: auto;
+}
+
+.regles {
+    margin: auto;
+    z-index: 98;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    padding: 1rem;
+    background-color: #0c141fb4;
+    border-radius: 20px;
+    color: white;
+    text-align: left;
+}
+
+.regles h1 {
+    margin: 20px auto;
+    font-family: 'bangers',cursive;
+    color: white;
 }
 
 @media (max-height:755px) {
