@@ -95,7 +95,7 @@ function getColors(color) {
 
     if (ligneFini == 4) {
         if (JSON.stringify(couleur_random) === JSON.stringify(ligneColor)) {
-            document.body.innerHTML += "<div class='win'><h1>Félicitations !!</h1><a onclick='reload()'>Rejouer</a></div>";
+            document.body.innerHTML += "<div class='win'><h1>Félicitations !!</h1><img src='./assets/win.gif'><a onclick='reload()'>Rejouer</a></div>";
         }
         else {
             ligneFini = 0;
