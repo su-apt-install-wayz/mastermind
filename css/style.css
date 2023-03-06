@@ -37,36 +37,44 @@ body {
     -webkit-text-stroke-color: #FFF;
 }
 
-.back {
+.btn {
     position: fixed;
-    top: 20px;
-    left: 20px;
     width: 100px;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: solid 2px var(--rose);
-    border-radius: 20px;
     z-index: 98;
     color: white;
     cursor: pointer;
 }
 
-.rules {
-    position: fixed;
+.btn::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    z-index: -1;
+    width: 0;
+    height: 100%;
+    transition: 300ms ease;
+    background-color: var(--rose);
+}
+
+.btn:hover::before {
+    width: 100%;
+    transition: 300ms ease;
+}
+
+.btn.back {
+    top: 20px;
+    left: 20px;
+}
+
+.btn.rules {
     top: 20px;
     right: 20px;
-    width: 100px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: solid 2px var(--rose);
-    border-radius: 20px;
-    z-index: 98;
-    color: white;
-    cursor: pointer;
 }
 
 .game {
@@ -238,6 +246,32 @@ body {
 .win a:hover::before {
     width: 100%;
     transition: 300ms ease;
+}
+
+.win p {
+    font-family: 'bangers',cursive;
+}
+
+.ligne_reponse {
+    margin: 20px auto;
+    width: 200px;
+    height: 60px;
+    padding: 2%;
+    background-color: #0c141f;
+    border: solid 1px var(--rose);
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.ligne_reponse  .bulle {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    border: solid 1px #157be6;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .regles {

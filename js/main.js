@@ -90,7 +90,7 @@ function getColors(color) {
     ligneColor.push(color);
 
     if (nbrBulle == ordreCouleur) {
-        document.body.innerHTML += "<div class='win'><h1>Game Over</h1><div class='ligne'><div class='bulle'></div><div class='bulle'></div><div class='bulle'></div><div class='bulle'></div></div><img class='gif' src='./assets/loose.gif'><a onclick='reload()'>Rejouer</a></div>";
+        document.body.innerHTML += "<div class='win'><h1>Game Over</h1><p>Solution :</p><div class='ligne_reponse'><div class='bulle'></div><div class='bulle'></div><div class='bulle'></div><div class='bulle'></div></div><img class='gif' src='./assets/loose.gif'><a onclick='reload()'>Rejouer</a></div>";
     }
 
     if (ligneFini == 4) {
