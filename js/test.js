@@ -29,3 +29,26 @@ console.log('nb : '+nbPlace)
 switch(nbPlace) {
     
 }
+
+function compareTableaux(tableau1, tableau2) {
+    // Vérifiez que les deux tableaux ont la même longueur
+    if (tableau1.length !== tableau2.length) {
+      return false;
+    }
+  
+    // Parcourez chaque élément et comparez-les à chaque index
+    for (let i = 0; i < tableau1.length; i++) {
+      if (tableau1[i] !== tableau2[i]) {
+        return false;
+      }
+    }
+  
+    // Si tous les éléments correspondent, retourner vrai
+    return true;
+  }
+  
+  // Exemple d'utilisation :
+  const tableauA = [1, 2, 3];
+  const tableauB = [1, 2, 4];
+  console.log(compareTableaux(tableauA, tableauB)); // Renvoie false
+  
