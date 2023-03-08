@@ -241,6 +241,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+
 .win a::before {
     position: absolute;
     top: 0;
