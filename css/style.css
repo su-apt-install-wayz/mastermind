@@ -141,7 +141,6 @@ body {
     z-index: 99;
     width: 10px;
     height: 10px;
-    border: solid 1px #157be6;
     border-radius: 50%;
     cursor: pointer;
 }
