@@ -5,6 +5,9 @@ let ordreToast = 0;
 // variable 0 ou 1 pour une ligne finie
 let ligneFini = 0;
 
+let nbEssais = 0;
+let statut = "";
+
 // tableaux vides pour les couleurs et pour une ligne de couleur afin de les comparer
 let couleur_random = [];
 const ligneColor = [];
@@ -89,23 +92,19 @@ function getColors(color) {
     ligneColor.push(color);
 
     if (nbrBulle == ordreCouleur) {
+        statut = "Perdu";
         document.body.innerHTML += "<div class='win'><h1>Game Over</h1><p>Solution :</p><div class='ligne_reponse'><div style='background:"+couleur_random[0]+"' class='bulle'></div><div style='background:"+couleur_random[1]+"' class='bulle'></div><div style='background:"+couleur_random[2]+"' class='bulle'></div><div style='background:"+couleur_random[3]+"' class='bulle'></div></div><img class='gif' src='./assets/loose.gif'><a onclick='reload()'>Rejouer</a></div>";
     }
 
     if (ligneFini == 4) {
         if (JSON.stringify(couleur_random) === JSON.stringify(ligneColor)) {
+            nbEssais = 1;
+            statut = "Gagné";
             document.body.innerHTML += "<div class='win'><h1>Félicitations !!</h1><img class='gif' src='./assets/win.gif'><a onclick='reload()'>Rejouer</a></div>";
         }
         else {
-            // let bonPlacement = [];
-
-            // for(let i = 0; i < couleur_random.length; i++){
-            // if(couleur_random[i] === ligneColor[i]){
-            //     bonPlacement.push(couleur_random[i]);
-            // } else {
-            //     bonPlacement.push(color);
-            // }
-            // }
+            nbEssais++;
+            console.log("nb"+nbEssais);
 
             // mettre à jour les bulles d'indice en conséquence            
             for(let i = 0; i < toast.length; i++){
@@ -127,13 +126,15 @@ function getColors(color) {
             ordreToast++
             ligneFini = 0;
             ligneColor.splice(color);
-
-
-            console.log('ordreToast = ' + ordreToast)
-            console.log('--------------------------------------------------')
-
         }
     }
+    let date = new Date(); // crée un objet Date avec la date actuelle
+    let jour = date.getDate(); // retourne le jour du mois (1-31)
+    let mois = date.getMonth()+1; // retourne le mois (0-11)
+    let annee = date.getFullYear();
+
+    localStorage.setItem('score', jour+"/"+mois+"/"+annee, nbEssais, laDifficulte, statut);
+
 }
 
 function reload() {

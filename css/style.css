@@ -303,6 +303,39 @@ body {
     color: white;
 }
 
+
+.scores {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1rem;
+    background-color: #0c141fcc;
+    border-radius: 20px;
+    color: white;
+    z-index: 98;
+}
+
+.scores .ligne_score {
+    margin: auto;
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    justify-content: space-between;
+    gap: 2%;
+}
+
+.scores .ligne_score .case {
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    min-width: 110px;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px var(--rose);
+}
+
 @media (max-height:755px) {
     .titre {
         display: none;
