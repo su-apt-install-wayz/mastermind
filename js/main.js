@@ -8,6 +8,14 @@ let ligneFini = 0;
 let nbEssais = 0;
 let statut = "";
 
+let date = new Date(); // crée un objet Date avec la date actuelle
+let jour = date.getDate(); // retourne le jour du mois (1-31)
+let mois = date.getMonth()+1; // retourne le mois (0-11)
+let annee = date.getFullYear();
+date_score = jour+"/"+mois+"/"+annee;
+
+let scores = JSON.parse(localStorage.getItem("score")) || [];
+
 // tableaux vides pour les couleurs et pour une ligne de couleur afin de les comparer
 let couleur_random = [];
 const ligneColor = [];
@@ -92,18 +100,16 @@ function getColors(color) {
     ligneColor.push(color);
 
     if (nbrBulle == ordreCouleur) {
-        statut = "Perdu";
         document.body.innerHTML += "<div class='win'><h1>Game Over</h1><p>Solution :</p><div class='ligne_reponse'><div style='background:"+couleur_random[0]+"' class='bulle'></div><div style='background:"+couleur_random[1]+"' class='bulle'></div><div style='background:"+couleur_random[2]+"' class='bulle'></div><div style='background:"+couleur_random[3]+"' class='bulle'></div></div><img class='gif' src='./assets/loose.gif'><a onclick='reload()'>Rejouer</a></div>";
+        tabScore(date_score, nbEssais, laDifficulte, "Perdu");
     }
 
     if (ligneFini == 4) {
         if (JSON.stringify(couleur_random) === JSON.stringify(ligneColor)) {
-            nbEssais = 1;
-            statut = "Gagné";
             document.body.innerHTML += "<div class='win'><h1>Félicitations !!</h1><img class='gif' src='./assets/win.gif'><a onclick='reload()'>Rejouer</a></div>";
+            tabScore(date_score, nbEssais, laDifficulte, "Gagné");
         }
         else {
-            nbEssais++;
             console.log("nb"+nbEssais);
 
             // mettre à jour les bulles d'indice en conséquence            
@@ -127,14 +133,29 @@ function getColors(color) {
             ligneFini = 0;
             ligneColor.splice(color);
         }
+        nbEssais++;
     }
-    let date = new Date(); // crée un objet Date avec la date actuelle
-    let jour = date.getDate(); // retourne le jour du mois (1-31)
-    let mois = date.getMonth()+1; // retourne le mois (0-11)
-    let annee = date.getFullYear();
 
-    localStorage.setItem('score', jour+"/"+mois+"/"+annee, nbEssais, laDifficulte, statut);
+    localStorage.setItem('score', date_score, nbEssais, laDifficulte, statut);
+}
 
+let score = [];
+
+function tabScore(date_score, nbEssais, laDifficulte, statut) {
+    score.push({
+        date_score: date_score,
+        nbEssais: nbEssais,
+        laDifficulte : laDifficulte,
+        statut: statut
+    });
+    localStorage.setItem("score", JSON.stringify(score));
+}
+
+function insertScore() {
+    const tableau = document.getElementById('tabScore');
+    for (let i=0; i < score.length; i++) {
+        tableau.insertAdjacentHTML = ("beforeend", "<div class='ligne_score'><div class='case'>"+score[i].date_score+"</div><div class='case'>Nombre d'essais</div><div class='case'>Difficulté</div><div class='case'>Statut</div></div>");
+    }
 }
 
 function reload() {
