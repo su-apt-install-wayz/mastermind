@@ -154,7 +154,7 @@ function tabScore(date_score, nbEssais, laDifficulte, statut) {
 function insertScore() {
     const tableau = document.getElementById('tabScore');
     for (let i=0; i < score.length; i++) {
-        tableau.insertAdjacentHTML = ("beforeend", "<div class='ligne_score'><div class='case'>"+score[i].date_score+"</div><div class='case'>Nombre d'essais</div><div class='case'>Difficulté</div><div class='case'>Statut</div></div>");
+        tableau.insertAdjacentHTML = ("beforeend", "<div class='ligne_score'><div class='case'>"+score[i].date_score+"</div><div class='case'>"+score[i].nbEssais+"</div><div class='case'>"+score[i].laDifficulte+"</div><div class='case'>"+score[i].statut+"</div></div>");
     }
 }
 
