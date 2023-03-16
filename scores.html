@@ -12,13 +12,15 @@
 <body>
     <audio src="./assets/mastermind.mp3" autoplay loop></audio>
 
+    <a href="index.html" class="btn back">Retour</a>
+
     <!-- Permet de créer le fond ainsi que les titres et les difficultés -->
     <div class="wrapper">
         <div class="inner-wrapper">
           <div class="landscape"></div>
         </div>
 
-        <div class="scores">
+        <div class="scores" id="tabScore">
             <h1>Tableau des scores</h1>
             <div class="ligne_score">
                 <div class="case">Date</div>
@@ -34,6 +36,9 @@
     </div>
 
     <script src="./js/main.js"></script>
+    <script>
+        window.onload = insertScore();
+    </script>
     
 </body>
 </html>

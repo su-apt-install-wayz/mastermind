@@ -305,16 +305,18 @@ body {
 
 
 .scores {
-    margin: auto;
+    margin: 30px auto;
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 1200px;
+    height: 75vh;
     padding: 1rem;
     background-color: #0c141fcc;
     border-radius: 20px;
     color: white;
     z-index: 98;
+    overflow: scroll;
 }
 
 .scores .ligne_score {

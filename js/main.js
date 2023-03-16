@@ -14,7 +14,7 @@ let mois = date.getMonth()+1; // retourne le mois (1-12)
 let annee = date.getFullYear();
 date_score = jour+"/"+mois+"/"+annee;
 
-let scores = JSON.parse(localStorage.getItem("score")) || [];
+let scores = JSON.parse(localStorage.getItem('score')) || [];
 
 // tableaux vides pour les couleurs et pour une ligne de couleur afin de les comparer
 let couleur_random = [];
@@ -108,9 +108,10 @@ function getColors(color) {
     }
 
     if (ligneFini == 4) {
+        nbEssais++;
         if (JSON.stringify(couleur_random) === JSON.stringify(ligneColor)) {
             document.body.innerHTML += "<div class='win'><h1>Félicitations !!</h1><img class='gif' src='./assets/win.gif'><a onclick='reload()'>Rejouer</a></div>";
-            tabScore(date_score, nbEssais, laDifficulte, "Gagné");
+            tabScore(date_score, nbEssais+1, laDifficulte, "Gagné");
         }
         else {
 
@@ -135,10 +136,7 @@ function getColors(color) {
             ligneFini = 0;
             ligneColor.splice(color);
         }
-        nbEssais++;
     }
-
-    localStorage.setItem('score', date_score, nbEssais, laDifficulte, statut);
 }
 
 function tabScore(date_score, nbEssais, laDifficulte, statut) {
@@ -149,12 +147,12 @@ function tabScore(date_score, nbEssais, laDifficulte, statut) {
         statut: statut
     });
     localStorage.setItem("score", JSON.stringify(scores));
-    insertScore();
+    console.log(scores);
 }
 
 function insertScore() {
-    const scores = JSON.parse(localStorage.getItem("score"));
     const tableau = document.getElementById('tabScore');
+    
     for (let i=0; i < scores.length; i++) {
         tableau.insertAdjacentHTML("beforeend", "<div class='ligne_score'><div class='case'>"+scores[i].date_score+"</div><div class='case'>"+scores[i].nbEssais+"</div><div class='case'>"+scores[i].laDifficulte+"</div><div class='case'>"+scores[i].statut+"</div></div>");
     }
