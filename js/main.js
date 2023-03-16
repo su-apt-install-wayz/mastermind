@@ -10,7 +10,7 @@ let statut = "";
 
 let date = new Date(); // crée un objet Date avec la date actuelle
 let jour = date.getDate(); // retourne le jour du mois (1-31)
-let mois = date.getMonth()+1; // retourne le mois (0-11)
+let mois = date.getMonth()+1; // retourne le mois (1-12)
 let annee = date.getFullYear();
 date_score = jour+"/"+mois+"/"+annee;
 
@@ -91,6 +91,9 @@ function getColors(color) {
     const bulleColor = document.getElementsByClassName('bulle'),
         toast = document.getElementsByClassName('toast');
 
+    // récupère la difficulté stockée
+    let laDifficulte = localStorage.getItem("laDifficulte");
+
     let nbrBulle = bulleColor.length;
     bulleColor[ordreCouleur].style.backgroundColor = color;
 
@@ -110,7 +113,6 @@ function getColors(color) {
             tabScore(date_score, nbEssais, laDifficulte, "Gagné");
         }
         else {
-            console.log("nb"+nbEssais);
 
             // mettre à jour les bulles d'indice en conséquence            
             for(let i = 0; i < toast.length; i++){
@@ -139,22 +141,22 @@ function getColors(color) {
     localStorage.setItem('score', date_score, nbEssais, laDifficulte, statut);
 }
 
-let score = [];
-
 function tabScore(date_score, nbEssais, laDifficulte, statut) {
-    score.push({
+    scores.push({
         date_score: date_score,
         nbEssais: nbEssais,
         laDifficulte : laDifficulte,
         statut: statut
     });
-    localStorage.setItem("score", JSON.stringify(score));
+    localStorage.setItem("score", JSON.stringify(scores));
+    insertScore();
 }
 
 function insertScore() {
+    const scores = JSON.parse(localStorage.getItem("score"));
     const tableau = document.getElementById('tabScore');
-    for (let i=0; i < score.length; i++) {
-        tableau.insertAdjacentHTML = ("beforeend", "<div class='ligne_score'><div class='case'>"+score[i].date_score+"</div><div class='case'>"+score[i].nbEssais+"</div><div class='case'>"+score[i].laDifficulte+"</div><div class='case'>"+score[i].statut+"</div></div>");
+    for (let i=0; i < scores.length; i++) {
+        tableau.insertAdjacentHTML("beforeend", "<div class='ligne_score'><div class='case'>"+scores[i].date_score+"</div><div class='case'>"+scores[i].nbEssais+"</div><div class='case'>"+scores[i].laDifficulte+"</div><div class='case'>"+scores[i].statut+"</div></div>");
     }
 }
 
