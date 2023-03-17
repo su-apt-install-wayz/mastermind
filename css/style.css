@@ -320,7 +320,7 @@ body {
 }
 
 .scores .ligne_score {
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     width: 100%;
     padding: 5px;
@@ -332,7 +332,7 @@ body {
     width: 100%;
     display: flex;
     padding: 10px;
-    min-width: 110px;
+    min-width: 80px;
     justify-content: center;
     align-items: center;
     border: solid 1px var(--rose);
@@ -341,5 +341,25 @@ body {
 @media (max-height:755px) {
     .titre {
         display: none;
+    }
+}
+
+@media (max-width:540px) {
+    .game {
+        margin: auto 50px auto 0;
+        width: 240px;
+    }
+
+    .game h1 {
+        display: none;
+    }
+    
+    .game .ligne {
+        gap: 5px;
+    }
+
+    .scores .ligne_score .case {
+        min-width: 55px;
+        font-size: 10px;
     }
 }
