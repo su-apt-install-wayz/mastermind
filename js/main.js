@@ -102,13 +102,12 @@ function getColors(color) {
 
     ligneColor.push(color);
 
-    if (nbrBulle == ordreCouleur) {
+    if (nbrBulle == ordreCouleur && JSON.stringify(couleur_random) !== JSON.stringify(ligneColor)) {
         document.body.innerHTML += "<div class='win'><h1>Game Over</h1><p>Solution :</p><div class='ligne_reponse'><div style='background:"+couleur_random[0]+"' class='bulle'></div><div style='background:"+couleur_random[1]+"' class='bulle'></div><div style='background:"+couleur_random[2]+"' class='bulle'></div><div style='background:"+couleur_random[3]+"' class='bulle'></div></div><img class='gif' src='./assets/loose.gif'><a onclick='reload()'>Rejouer</a></div>";
-        tabScore(date_score, nbEssais, laDifficulte, "Perdu");
+        tabScore(date_score, "--", laDifficulte, "Perdu");
     }
 
     if (ligneFini == 4) {
-        nbEssais++;
         if (JSON.stringify(couleur_random) === JSON.stringify(ligneColor)) {
             document.body.innerHTML += "<div class='win'><h1>Félicitations !!</h1><img class='gif' src='./assets/win.gif'><a onclick='reload()'>Rejouer</a></div>";
             tabScore(date_score, nbEssais+1, laDifficulte, "Gagné");
@@ -129,13 +128,14 @@ function getColors(color) {
               
                   toast[i].classList.add('score_on');
                 } 
-              }
+            }
 
             toast[ordreToast].classList.add('score_on');
             ordreToast++
             ligneFini = 0;
             ligneColor.splice(color);
         }
+        nbEssais++;
     }
 }
 
