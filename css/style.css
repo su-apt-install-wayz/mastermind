@@ -316,7 +316,7 @@ body {
     border-radius: 20px;
     color: white;
     z-index: 98;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .scores .ligne_score {
