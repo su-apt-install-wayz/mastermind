@@ -1,0 +1,267 @@
+@import url('init.css');
+
+.game {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    z-index: 99;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px var(--grey);
+    filter: drop-shadow(0 0 1px white) drop-shadow(0 0 1px #6200ff) drop-shadow(0 0 2px #4c00ff) drop-shadow(0 0px 4px rgba(76, 0, 255, 0.2)) drop-shadow(0 3px 2px rgba(140, 0, 255, 0.2));
+    background: #0e0e0e;
+    background: url("https://themes.muffingroup.com/be/band5/wp-content/uploads/2020/02/band5_noise.gif");
+    gap: 2px;
+    transition: all 0.2s ease;
+}
+
+.game.active {
+    transform: translateX(-40px);
+    transition: all 0.2s ease;
+}
+
+.game:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.9;
+}
+
+.game .ligne {
+    margin: auto;
+    width: 100%;
+    z-index: 99;
+    height: 100%;
+    padding: 10px;
+    border-bottom: solid 1px var(--grey);
+    filter: drop-shadow(0 0 1px white) drop-shadow(0 0 1px #6200ff) drop-shadow(0 0 2px #4c00ff) drop-shadow(0 0px 4px rgba(76, 0, 255, 0.2)) drop-shadow(0 3px 2px rgba(140, 0, 255, 0.2));
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.game .ligne:first-child {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.game .ligne:last-child {
+    margin: 20px auto 0;
+    /* border-top: solid 2px var(--grey); */
+    border: none;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    filter: none;
+}
+
+.game .ligne .toast {
+    position: absolute;
+    display: flex;
+    opacity: 0;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 40px;
+    z-index: 2;
+    background-color: #0c141f;
+    border: solid 1px var(--grey);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    transition: 300ms ease;
+}
+
+.toast:scope > .ligne {
+    filter: none;
+}
+
+.toast:scope > .game {
+    filter: none;
+}
+
+.game .ligne .toast .bulle_indice {
+    margin: auto;
+    z-index: 99;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+  
+.game .ligne  .toast.score_on {
+    opacity: 1;
+    right: -80px;
+    transition: 300ms ease;
+}
+
+.game .ligne .bulle {
+    margin: auto;
+    z-index: 99;
+    width: 30px;
+    height: 30px;
+    border: solid 1px #fff;
+    /* filter: drop-shadow(0 0 1px white) drop-shadow(0 0 1px #6200ff) drop-shadow(0 0 2px #4c00ff) drop-shadow(0 0px 4px rgba(76, 0, 255, 0.2)) drop-shadow(0 3px 2px rgba(140, 0, 255, 0.2)); */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.game .ligne .bulle_choix {
+    margin: auto;
+    width: 100%;
+    height: 30px;
+    border: solid 1px #157be6;
+    cursor: pointer;
+}
+
+.game .ligne .red {
+    background-color: red;
+    border: none;
+    filter: drop-shadow(0 0 2px red);
+}
+
+.game .ligne .yellow {
+    background-color: yellow;
+    border: none;
+    filter: drop-shadow(0 0 2px yellow);;
+}
+
+.game .ligne .green {
+    background-color: green;
+    border: none;
+    filter: drop-shadow(0 0 2px green);
+}
+
+.game .ligne .blue {
+    background-color: blue;
+    border: none;
+    filter: drop-shadow(0 0 2px blue);
+}
+
+.game .ligne .white {
+    background-color: white;
+    border: none;
+    filter: drop-shadow(0 0 2px white);
+}
+
+.win {
+    z-index: 999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    background: #0e0e0e;
+    background: url("https://themes.muffingroup.com/be/band5/wp-content/uploads/2020/02/band5_noise.gif");
+    color: white;
+    border: solid 1px var(--grey);
+    filter: drop-shadow(0 0 1px white) drop-shadow(0 0 1px #6200ff) drop-shadow(0 0 2px #4c00ff) drop-shadow(0 0px 4px rgba(76, 0, 255, 0.2)) drop-shadow(0 3px 2px rgba(140, 0, 255, 0.2));
+}
+
+.win:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.9;
+}
+
+.win h1 {
+    z-index: 9999;
+    margin: 20px auto 0;
+    font-family: "Righteous", sans-serif;
+    text-transform: capitalize;
+    font-weight: 900;
+    font-size: 4rem;
+    line-height: 1;
+    color: white;
+    background: #ff0083;
+    background: linear-gradient(0deg, white 32%, #011ec6 43%, white 45%, white 57%, #001d53 77%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 1px rgba(38, 219, 243, 0.8);
+    text-shadow: 0 0 20px rgba(12, 194, 218, 0.7);
+    -webkit-animation: retro-glow 3s linear infinite;
+    animation: retro-glow 3s linear infinite;
+}
+
+.win .gif {
+    z-index: 9999;
+    margin: auto;
+    width: 300px;
+    height: auto;
+}
+
+.win a {
+    z-index: 9999;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    z-index: 98;
+    background-color: transparent;
+    filter: drop-shadow(0 0 1px white) drop-shadow(0 0 1px #6200ff) drop-shadow(0 0 2px #4c00ff) drop-shadow(0 0px 4px rgba(76, 0, 255, 0.2)) drop-shadow(0 3px 2px rgba(140, 0, 255, 0.2));
+    font-family: 'bangers',cursive;
+    color: white;
+    border: solid 1px var(--grey);
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.win p {
+    font-family: 'bangers',cursive;
+}
+
+.ligne_reponse {
+    z-index: 9999;
+    margin: 20px auto;
+    width: 200px;
+    height: 60px;
+    padding: 2%;
+    background-color: #0c141f;
+    border: solid 1px #fff;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 1px white) drop-shadow(0 0 1px #6200ff) drop-shadow(0 0 2px #4c00ff) drop-shadow(0 0px 4px rgba(76, 0, 255, 0.2)) drop-shadow(0 3px 2px rgba(140, 0, 255, 0.2));
+}
+
+.ligne_reponse  .bulle {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media (max-width:560px) {
+    .game {
+        width: 240px;
+    }
+
+    .game h1 {
+        display: none;
+    }
+    
+    .game .ligne {
+        gap: 5px;
+    }
+
+}

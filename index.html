@@ -1,79 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mastermind</title>
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="shortcut icon" href="./assets/mastermind.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="shortcut icon" href="./ressources/mastermind.png" type="image/x-icon">
 </head>
+
 <body>
-    <audio src="./assets/mastermind.mp3" autoplay loop></audio>
 
-    <!-- Permet de créer le fond ainsi que les titres et les difficultés -->
-    <div class="wrapper">
-        <div class="inner-wrapper">
-          <div class="landscape"></div>
+    <p class="credit">CodePen by <a target="blank" href="https://codepen.io/tiantsoa/full/JjXZJyx">Tiantsoa</a></p>
+
+    <div class="container">     
+        <div class="sun"></div>
+        <div class="landscape">
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
+            <div class="tower"></div>
         </div>
-        <div class="nrw">
-
-          <span class="retro">
-            <span class="letter">M</span>
-            <span class="letter">a</span>
-            <span class="letter">s</span>
-            <span class="letter">t</span>
-            <span class="letter">e</span>
-            <span class="letter">r</span>
-            <span class="letter">m</span>
-            <span class="letter">i</span>
-            <span class="letter">n</span>
-            <span class="letter">d</span>
-          </span>
-
-          <a class="wave" onclick="getDifficulte('facile')">
-            <span class="letter">F</span>
-            <span class="letter">a</span>
-            <span class="letter">c</span>
-            <span class="letter">i</span>
-            <span class="letter">l</span>
-            <span class="letter">e</span>
-          </a><br>
-
-          <a class="wave" onclick="getDifficulte('moyen')">
-            <span class="letter">M</span>
-            <span class="letter">o</span>
-            <span class="letter">y</span>
-            <span class="letter">e</span>
-            <span class="letter">n</span>
-          </a><br>
-
-          <a class="wave" onclick="getDifficulte('difficile')">
-            <span class="letter">D</span>
-            <span class="letter">i</span>
-            <span class="letter">f</span>
-            <span class="letter">f</span>
-            <span class="letter">i</span>
-            <span class="letter">c</span>
-            <span class="letter">i</span>
-            <span class="letter">l</span>
-            <span class="letter">e</span>
-          </a><br>
-
-          <a class="wave" href="scores.html">
-            <span class="letter">S</span>
-            <span class="letter">c</span>
-            <span class="letter">o</span>
-            <span class="letter">r</span>
-            <span class="letter">e</span>
-            <span class="letter">s</span>
-          </a><br>
-
+        <div class="grid">
+            <div class="grid-container">
+                <!-- 16 row and 15 columns grid-->
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
-        <div class="triangle"></div>
-      </div>
+        <div class="text" onclick="location.href='index.html'">
+            <svg class="triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 243.27 210.68">
+                <polygon points="121.64 1.38 240.89 1.38 181.26 104.65 121.64 207.93 62.01 104.65 2.38 1.38 121.64 1.38"
+                    fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></polygon>
+            </svg>
+            <h1 class="retro">MASTER</h1>
+            <h2 class="wave">&nbsp;&nbsp;mind</h2>
+        </div>
 
-      <script src="./js/main.js"></script>
-    
+        <div class="text2">
+            <h3 onclick="getDifficulte('facile')" class="retro-level">Facile</h3>
+            <h3 onclick="getDifficulte('moyen')" class="retro-level">Moyen</h3>
+            <h3 onclick="getDifficulte('difficile')" class="retro-level">Difficile</h3>
+        </div>
+    </div>
+
+
+    <script src="./js/main.js"></script>
 </body>
+
 </html>

@@ -89,6 +89,7 @@ for (let i = 0; i < 4; i++) {
 function getColors(color) {
     const bulleColor = document.getElementsByClassName('bulle'),
         toast = document.getElementsByClassName('toast');
+    const game = document.getElementById('game');
 
     // récupère la difficulté stockée
     let laDifficulte = localStorage.getItem("laDifficulte");
@@ -103,7 +104,7 @@ function getColors(color) {
 
     // si le jeu est fini ou si les deux tableaux ne correspondent pas, le joueur a perdu
     if (nbrBulle == ordreCouleur && JSON.stringify(couleur_random) !== JSON.stringify(ligneColor)) {
-        document.body.innerHTML += "<div class='win'><h1>Game Over</h1><p>Solution :</p><div class='ligne_reponse'><div style='background:"+couleur_random[0]+"' class='bulle'></div><div style='background:"+couleur_random[1]+"' class='bulle'></div><div style='background:"+couleur_random[2]+"' class='bulle'></div><div style='background:"+couleur_random[3]+"' class='bulle'></div></div><img class='gif' src='./assets/loose.gif'><a onclick='reload()'>Rejouer</a></div>";
+        document.body.innerHTML += "<div class='win'><h1>Game Over</h1><div class='ligne_reponse'><div style='background:"+couleur_random[0]+"' class='bulle'></div><div style='background:"+couleur_random[1]+"' class='bulle'></div><div style='background:"+couleur_random[2]+"' class='bulle'></div><div style='background:"+couleur_random[3]+"' class='bulle'></div></div><img class='gif' src='./ressources/loose.gif'><a onclick='reload()'>Rejouer</a></div>";
         tabScore(date_score, "--", laDifficulte, "Perdu");
     }
 
@@ -111,7 +112,7 @@ function getColors(color) {
     if (ligneFini == 4) {
         // si les deux tableaux correspondent -> gagné
         if (JSON.stringify(couleur_random) === JSON.stringify(ligneColor)) {
-            document.body.innerHTML += "<div class='win'><h1>Félicitations !!</h1><img class='gif' src='./assets/win.gif'><a onclick='reload()'>Rejouer</a></div>";
+            document.body.innerHTML += "<div class='win'><h1>Félicitations !!</h1><img class='gif' src='./ressources/win.gif'><a onclick='reload()'>Rejouer</a></div>";
             // permet de faire le tableau des scores
             tabScore(date_score, nbEssais+1, laDifficulte, "Gagné");
         }
@@ -132,6 +133,7 @@ function getColors(color) {
                   }
                   // ajoute une classe qui permet d'afficher les indices sur le côté de la ligne
                   toast[i].classList.add('score_on');
+                  game.classList.add('active');
                 } 
             }
 
